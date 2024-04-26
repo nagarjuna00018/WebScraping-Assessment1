@@ -1,6 +1,6 @@
 # Web Scraper
 
-This Python script scrapes headings, subheadings, and code snippets from a website and saves the data to a CSV file, and guides.py file extract the nested pages of user installation guide data.
+This Python AllPages.py script scrapes headings, subheadings, and code snippets from a website and saves the data to a CSV file, and guides.py file extract the nested pages of user installation guide data.
 
 ## Usage
 
