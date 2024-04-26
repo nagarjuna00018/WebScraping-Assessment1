@@ -1,0 +1,286 @@
+Headings,Subheadings,Code Snippets
+Python Packaging User Guide#,"Overview and Flow#, Tutorials#, Guides#, Explanations and Discussions#, Reference#",
+Overview of Python Packaging#,"Thinking about deployment#, Packaging Python libraries and tools#, Python modules#, Python source distributions#, Python binary distributions#, Packaging Python applications#, Depending on a framework#, Service platforms#, Web browsers and mobile applications#, Depending on a pre-installed Python#, Depending on a separate software distribution ecosystem#, Bringing your own Python executable#, Bringing your own userspace#, Bringing your own kernel#, Bringing your own hardware#, What about…#, Operating system packages#, virtualenv#, Security#, Wrap up#",
+The Packaging Flow#,"The source tree#, The configuration file#, Build artifacts#, The source distribution (sdist)#, The built distributions (wheels)#, Upload to the package distribution service#, Download and install#","[build-system]
+requires = [""hatchling""]
+build-backend = ""hatchling.build"""
+Tutorials#,,
+Installing Packages#,"Requirements for Installing Packages#, Ensure you can run Python from the command line#, Ensure you can run pip from the command line#, Ensure pip, setuptools, and wheel are up to date#, Optionally, create a virtual environment#, Creating Virtual Environments#, Use pip for Installing#, Installing from PyPI#, Source Distributions vs Wheels#, Upgrading packages#, Installing to the User Site#, Requirements files#, Installing from VCS#, Installing from other Indexes#, Installing from a local src tree#, Installing from local archives#, Installing from other sources#, Installing Prereleases#, Installing “Extras”#",python3 --version
+Managing Application Dependencies#,"Installing Pipenv#, Installing packages for your project#, Using installed packages#, Next steps#, Other Tools for Application Dependency Management#",python3 -m pip install --user pipenv
+Packaging Python Projects#,"A simple project#, Creating the package files#, Creating a test directory#, Choosing a build backend#, Configuring metadata#, Creating README.md#, Creating a LICENSE#, Including other files#, Generating distribution archives#, Uploading the distribution archives#, Installing your newly uploaded package#, Next steps#",python3 -m pip install --upgrade pip
+Guides#,,
+Installation#,,
+Install packages in a virtual environment using pip and venv#,"Create and Use Virtual Environments#, Create a new virtual environment#, Activate a virtual environment#, Deactivate a virtual environment#, Reactivate a virtual environment#, Prepare pip#, Install packages using pip#, Install a package#, Install a specific package version#, Install extras#, Install a package from source#, Install from version control systems#, Install from local archives#, Install from other package indexes#, Upgrading packages#, Using a requirements file#, Freezing dependencies#",python3 -m venv .venv
+Installing packages using virtualenv#,,
+Installing stand alone command line tools#,,"python3 -m pip install --user pipx
+python3 -m pipx ensurepath"
+Installing pip/setuptools/wheel with Linux Package Managers#,"Fedora#, CentOS/RHEL#, openSUSE#, Debian/Ubuntu and derivatives#, Arch Linux#",sudo dnf install python3-pip python3-wheel
+Installing scientific packages#,"Building from source#, Linux distribution packages#, Windows installers#, macOS installers and package managers#, SciPy distributions#, Spack#, The conda cross-platform package manager#",
+Building and Publishing#,,
+Writing your pyproject.toml#,"Declaring the build backend#, Static vs. dynamic metadata#, Basic information#, name#, version#, Dependencies and requirements#, dependencies/optional-dependencies#, requires-python#, Creating executable scripts#, About your project#, authors/maintainers#, description#, readme#, license#, keywords#, classifiers#, urls#, Advanced plugins#, A full example#","[build-system]
+requires = [""hatchling""]
+build-backend = ""hatchling.build"""
+Packaging and distributing projects#,"Requirements for packaging and distributing#, Configuring your project#, Initial files#, setup.py#, setup.cfg#, README.rst / README.md#, MANIFEST.in#, LICENSE.txt#, <your package>#, setup() args#, packages#, py_modules#, install_requires#, package_data#, data_files#, scripts#, Choosing a versioning scheme#, Working in “development mode”#, Packaging your project#, Source distributions#, Wheels#, Pure Python Wheels#, Platform Wheels#, Uploading your Project to PyPI#, Create an account#, Upload your distributions#",python3 -m pip install twine
+Single-sourcing the package version#,,"import codecs
+import os.path
+
+def read(rel_path):
+    here = os.path.abspath(os.path.dirname(__file__))
+    with codecs.open(os.path.join(here, rel_path), 'r') as fp:
+        return fp.read()
+
+def get_version(rel_path):
+    for line in read(rel_path).splitlines():
+        if line.startswith('__version__'):
+            delim = '""' if '""' in line else ""'""
+            return line.split(delim)[1]
+    else:
+        raise RuntimeError(""Unable to find version string."")
+
+setup(
+   ...
+   version=get_version(""package/__init__.py"")
+   ...
+)"
+Dropping support for older Python versions#,"Requirements#, Dealing with the universal wheels#, Defining the Python version required#, 1. Download the newest version of Setuptools#, 2. Specify the version ranges for supported Python distributions#, 3. Validating the Metadata before publishing#, 4. Using Twine to publish#, Dropping a Python release#","# setup.cfg
+
+[bdist_wheel]
+universal = 0  # Make the generated wheels have ""py3"" tag"
+Packaging binary extensions#,"An overview of binary extensions#, Use cases#, Disadvantages#, Alternatives to handcoded accelerator modules#, Alternatives to handcoded wrapper modules#, Alternatives for low level system access#, Implementing binary extensions#, Extension module lifecycle#, Implications of shared static state and subinterpreters#, Implications of the GIL#, Memory allocation APIs#, ABI Compatibility#, Building binary extensions#, Building extensions for multiple platforms#, Binary extensions for Windows#, Binary extensions for Linux#, Binary extensions for macOS#, Publishing binary extensions#, Avoid binary-only releases#, Weak linking#, Additional resources#, Cross-platform wheel generation with scikit-build#, Introduction to C/C++ extension modules#",count(Python minor versions) * count(OS) * count(architectures)
+Packaging namespace packages#,"Creating a namespace package#, Native namespace packages#, Legacy namespace packages#, pkgutil-style namespace packages#, pkg_resources-style namespace packages#","mynamespace/
+    __init__.py
+    subpackage_a/
+        __init__.py
+        ...
+    subpackage_b/
+        __init__.py
+        ...
+    module_b.py
+pyproject.toml"
+Creating and discovering plugins#,"Using naming convention#, Using namespace packages#, Using package metadata#","import importlib
+import pkgutil
+
+discovered_plugins = {
+    name: importlib.import_module(name)
+    for finder, name, ispkg
+    in pkgutil.iter_modules()
+    if name.startswith('flask_')
+}"
+Using TestPyPI#,"Registering your account#, Using TestPyPI with Twine#, Using TestPyPI with pip#, Setting up TestPyPI in .pypirc#",twine upload --repository testpypi dist/*
+Making a PyPI-friendly README#,"Creating a README file#, Including your README in your package’s metadata#, Validating reStructuredText markup#",python3 -m pip install --user --upgrade setuptools wheel twine
+Publishing package distribution releases using GitHub Actions CI/CD workflows#,"Configuring trusted publishing#, Creating a workflow definition#, Checking out the project and building distributions#, Defining a workflow job environment#, Publishing the distribution to PyPI#, Signing the distribution packages#, Separate workflow for publishing to TestPyPI#, The whole CI/CD workflow#, That’s all, folks!#","name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
+
+on: push"
+How to modernize a setup.py based project?#,"Should pyproject.toml be added?#, Should setup.py be deleted?#, Where to start?#, How to handle additional build-time dependencies?#, What is the build isolation feature?#, How to handle packaging metadata?#, How to handle dynamic metadata?#, What if something that can not be changed expects a setup.py file?#, Where to read more about this?#","[build-system]
+requires = [""setuptools""]
+build-backend = ""setuptools.build_meta"""
+Hosting#,,
+Package index mirrors and caches#,"Caching with pip#, Existing projects#","python3 -m pip wheel --wheel-dir=/tmp/wheelhouse SomeProject
+python3 -m pip install --no-index --find-links=/tmp/wheelhouse SomeProject"
+Hosting your own simple repository#,"“Manual” repository#, Existing projects#",python3 -m pip install --extra-index-url https://python.example.com/ foobar
+Tool recommendations#,"Virtual environments#, Installing packages#, Lock files#, Build backends#, Building distributions#, Uploading to PyPI#, Workflow tools#",
+Analyzing PyPI package downloads#,"Background#, Public dataset#, Getting set up#, Data schema#, Useful queries#, Counting package downloads#, Package downloads over time#, Python versions over time#, Getting absolute links to artifacts#, Caveats#, Additional tools#, google-cloud-bigquery#, pypinfo#, pandas-gbq#, References#","#standardSQL
+SELECT COUNT(*) AS num_downloads
+FROM `bigquery-public-data.pypi.file_downloads`
+WHERE file.project = 'pytest'
+  -- Only query the last 30 days of history
+  AND DATE(timestamp)
+    BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+    AND CURRENT_DATE()"
+Discussions#,,
+Versioning#,"Valid version numbers#, Semantic versioning vs. calendar versioning#, Semantic versioning#, Calendar versioning#, Other schemes#, Local version identifiers#",
+Deploying Python applications#,"Overview#, Supporting multiple hardware platforms#, OS packaging & installers#, Windows#, Pynsist#, Application bundles#, Windows#, py2exe#, macOS#, py2app#, Unix (including Linux and macOS)#, pex#, Configuration management#","FIXME
+
+Meaning: x86, x64, ARM, others?
+
+For Python-only distributions, it *should* be straightforward to deploy on all
+platforms where Python can run.
+
+For distributions with binary extensions, deployment is major headache.  Not only
+must the extensions be built on all the combinations of operating system and
+hardware platform, but they must also be tested, preferably on continuous
+integration platforms.  The issues are similar to the ""multiple Python
+versions"" section above, not sure whether this should be a separate section.
+Even on Windows x64, both the 32 bit and 64 bit versions of Python enjoy
+significant usage."
+pip vs easy_install#,,
+install_requires vs requirements files#,"install_requires#, Requirements files#","install_requires=[
+   'A',
+   'B'
+]"
+Distribution package vs. import package#,"What’s a distribution package?#, What’s an import package?#, What are the links between distribution packages and import packages?#, How do distribution package names and import package names compare?#",
+Package Formats#,"What is a source distribution?#, What is a wheel?#, What about eggs?#",
+src layout vs flat layout#,,".
+├── README.md
+├── noxfile.py
+├── pyproject.toml
+├── setup.py
+├── awesome_package/
+│   ├── __init__.py
+│   └── module.py
+└── tools/
+    ├── generate_awesomeness.py
+    └── decrease_world_suck.py"
+Is setup.py deprecated?#,"What commands should be used instead?#, What about other commands?#, python setup.py test#, python setup.py check, python setup.py register, and python setup.py upload#, python setup.py --version#, Remaining commands#, What about custom commands?#, What about custom build steps?#, Should setup.py be deleted?#, Is pyproject.toml mandatory?#, Why? What does it all mean?#, Where to read more about this?#","[build-system]
+requires = [""setuptools""]
+build-backend = ""setuptools.build_meta"""
+PyPA specifications#,,
+Package Distribution Metadata#,,
+Names and normalization#,"Name format#, Name normalization#, History#",^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+Core metadata specifications#,"Metadata-Version#, Name#, Version#, Dynamic (multiple use)#, Platform (multiple use)#, Supported-Platform (multiple use)#, Summary#, Description#, Description-Content-Type#, Keywords#, Home-page#, Download-URL#, Author#, Author-email#, Maintainer#, Maintainer-email#, License#, Classifier (multiple use)#, Requires-Dist (multiple use)#, Requires-Python#, Requires-External (multiple use)#, Project-URL (multiple-use)#, Provides-Extra (multiple use)#, Rarely Used Fields#, Provides-Dist (multiple use)#, Obsoletes-Dist (multiple use)#, Deprecated Fields#, Requires#, Provides#, Obsoletes#, History#",Metadata-Version: 2.3
+Version specifiers#,"Definitions#, Version scheme#, Public version identifiers#, Local version identifiers#, Final releases#, Pre-releases#, Post-releases#, Developmental releases#, Version epochs#, Normalization#, Case sensitivity#, Integer Normalization#, Pre-release separators#, Pre-release spelling#, Implicit pre-release number#, Post release separators#, Post release spelling#, Implicit post release number#, Implicit post releases#, Development release separators#, Implicit development release number#, Local version segments#, Preceding v character#, Leading and Trailing Whitespace#, Examples of compliant version schemes#, Summary of permitted suffixes and relative ordering#, Version ordering across different metadata versions#, Compatibility with other version schemes#, Semantic versioning#, DVCS based version labels#, Olson database versioning#, Version specifiers#, Compatible release#, Version matching#, Version exclusion#, Inclusive ordered comparison#, Exclusive ordered comparison#, Arbitrary equality#, Handling of pre-releases#, Examples#, Direct references#, File URLs#, Summary of differences from pkg_resources.parse_version#, Appendix: Parsing version strings with regular expressions#, History#",[N!]N(.N)*[{a|b|rc}N][.postN][.devN]
+Dependency specifiers#,"Specification#, Examples#, Concepts#, Grammar#, Whitespace#, Names#, Extras#, Versions#, Environment Markers#, Complete Grammar#, History#, References#","requests [security,tests] >= 2.8.1, == 2.8.* ; python_version < ""2.7"""
+pyproject.toml specification#,"Declaring build system dependencies: the [build-system] table#, Declaring project metadata: the [project] table#, name#, version#, description#, readme#, requires-python#, license#, authors/maintainers#, keywords#, classifiers#, urls#, Entry points#, dependencies/optional-dependencies#, dynamic#, Arbitrary tool configuration: the [tool] table#, History#","[build-system]
+# Minimum requirements for the build system to execute.
+requires = [""setuptools""]"
+Inline script metadata#,"Specification#, script type#, Example#, Reference Implementation#, Recommendations#, History#","# /// some-toml
+# embedded-csharp = """"""
+# /// <summary>
+# /// text
+# ///
+# /// </summary>
+# public class MyClass { }
+# """"""
+# ///"
+Platform compatibility tags#,"Overview#, Python Tag#, ABI Tag#, Platform Tag#, Basic platform tags#, manylinux#, musllinux#, Use#, Compressed Tag Sets#, FAQ#, History#","import re
+import subprocess
+
+def get_musl_major_minor(so: str) -> tuple[int, int] | None:
+    """"""Detect musl runtime version.
+
+    Returns a two-tuple ``(major, minor)`` that indicates musl
+    library's version, or ``None`` if the given libc .so does not
+    output expected information.
+
+    The libc library should output something like this to stderr::
+
+        musl libc (x86_64)
+        Version 1.2.2
+        Dynamic Program Loader
+    """"""
+    proc = subprocess.run([so], stderr=subprocess.PIPE, text=True)
+    lines = (line.strip() for line in proc.stderr.splitlines())
+    lines = [line for line in lines if line]
+    if len(lines) < 2 or lines[0][:4] != ""musl"":
+        return None
+    match = re.match(r""Version (\d+)\.(\d+)"", lines[1])
+    if match:
+        return (int(match.group(1)), int(match.group(2)))
+    return None"
+Package Installation Metadata#,,
+Recording installed projects#,"The .dist-info directory#, The METADATA file#, The RECORD file#, The INSTALLER file#, The entry_points.txt file#, The direct_url.json file#, Intentionally preventing changes to installed packages#, History#","/usr/bin/black,sha256=iFlOnL32lIa-RKk-MDihcbJ37wxmRbE4xk6eVYVTTeU,220
+../../../bin/blackd,sha256=lCadt4mcU-B67O1gkQVh7-vsKgLpx6ny1le34Jz6UVo,221
+__pycache__/black.cpython-38.pyc,,
+__pycache__/blackd.cpython-38.pyc,,
+black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
+black-19.10b0.dist-info/RECORD,,
+black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
+blackd.py,sha256=JCxaK4hLkMRwVfZMj8FRpRRYC0172-juKqbN22bISLE,6672
+blib2to3/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+blib2to3/__pycache__/__init__.cpython-38.pyc,,
+blib2to3/__pycache__/pygram.cpython-38.pyc,sha256=zpXgX4FHDuoeIQKO_v0sRsB-RzQFsuoKoBYvraAdoJw,1512
+blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
+blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
+blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530"
+Entry points specification#,"Data model#, File format#, Use for scripts#, History#","import importlib
+modname, qualname_separator, qualname = object_ref.partition(':')
+obj = importlib.import_module(modname)
+if qualname_separator:
+    for attr in qualname.split('.'):
+        obj = getattr(obj, attr)"
+Recording the Direct URL Origin of installed distributions#,"Specification#, Example pip commands and their effect on direct_url.json#, History#",
+Direct URL Data Structure#,"Specification#, VCS URLs#, Archive URLs#, Local directories#, Projects in subdirectories#, Registered VCS#, Git#, Mercurial#, Bazaar#, Subversion#, JSON Schema#, Examples#, History#",\$\{[A-Za-z0-9-_]+\}(:\$\{[A-Za-z0-9-_]+\})?
+Python Virtual Environments#,"Runtime detection of virtual environments#, Declaring installation environments as Python virtual environments#, History#",
+Externally Managed Environments#,"Terminology#, Overview#, Marking an interpreter as using an external package manager#, Writing to only the target sysconfig scheme#, Recommendations for distros#, Mark the installation as externally managed#, Guide users towards virtual environments#, Keep the marker file in container images#, Create separate distro and local directories#, Implementation Notes#, Copyright#, History#","[externally-managed]
+Error=To install Python packages system-wide, try apt install
+ python3-xyz, where xyz is the package you are trying to
+ install.
+
+ If you wish to install a non-Debian-packaged Python package,
+ create a virtual environment using python3 -m venv path/to/venv.
+ Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+ sure you have python3-full installed.
+
+ If you wish to install a non-Debian packaged Python application,
+ it may be easiest to use pipx install xyz, which will manage a
+ virtual environment for you. Make sure you have pipx installed.
+
+ See /usr/share/doc/python3.9/README.venv for more information."
+Package Distribution File Formats#,,
+Source distribution format#,"Source trees#, Source distribution file name#, Source distribution file format#, Source distribution archive features#, Unpacking with the data filter#, Unpacking without the data filter#, Further hints#, History#",
+Binary distribution format#,"Details#, Installing a wheel ‘distribution-1.0-py32-none-any.whl’#, Recommended installer features#, Recommended archiver features#, File Format#, File name convention#, Escaping and Unicode#, File contents#, The .dist-info directory#, The .data directory#, Signed wheel files#, FAQ#, Wheel defines a .data directory.  Should I put all my data there?#, Why does wheel include attached signatures?#, Why does wheel allow JWS signatures?#, Why does wheel also allow S/MIME signatures?#, What’s the deal with “purelib” vs. “platlib”?#, Is it possible to import Python code directly from a wheel file?#, History#, Appendix#","Wheel-Version: 1.0
+Generator: bdist_wheel 1.0
+Root-Is-Purelib: true
+Tag: py2-none-any
+Tag: py3-none-any
+Build: 1"
+Package Index Interfaces#,,
+The .pypirc file#,"Common configurations#, Using a PyPI token#, Using another package index#","[distutils]
+index-servers =
+    first-repository
+    second-repository
+
+[first-repository]
+repository = <first-repository URL>
+username = <first-repository username>
+password = <first-repository password>
+
+[second-repository]
+repository = <second-repository URL>
+username = <second-repository username>
+password = <second-repository password>"
+Simple repository API#,"Base HTML API#, Normalized Names#, Adding “Yank” Support to the Simple API#, Installers#, Mirrors#, Versioning PyPI’s Simple API#, Clients#, Serve Distribution Metadata in the Simple Repository API#, Backwards Compatibility#, JSON-based Simple API for Python Package Indexes#, Versioning#, JSON Serialization#, Project List#, Project Detail#, Content-Types#, Version + Format Selection#, Alternative Negotiation Mechanisms#, URL Parameter#, Endpoint Configuration#, TUF Support - PEP 458#, Recommendations#, Additional Fields for the Simple API for Package Indexes#, Versions#, Additional file information#, Rename dist-info-metadata in the Simple API#, Servers#, Clients#, History#","<!DOCTYPE html>
+<html>
+  <body>
+    <a href=""/frob/"">frob</a>
+    <a href=""/spamspamspam/"">spamspamspam</a>
+  </body>
+</html>"
+Project Summaries#,"PyPA Projects#, bandersnatch#, build#, cibuildwheel#, distlib#, distutils#, flit#, hatch#, packaging#, pip#, Pipenv#, Pipfile#, pipx#, Python Packaging User Guide#, readme_renderer#, Setuptools#, trove-classifiers#, twine#, virtualenv#, Warehouse#, wheel#, Non-PyPA Projects#, buildout#, conda#, devpi#, dumb-pypi#, enscons#, Flask-Pypi-Proxy#, Hashdist#, Maturin#, meson-python#, multibuild#, nginx_pypi_cache#, pdm#, pex#, pip-tools#, pip2pi#, piwheels#, poetry#, proxpi#, Pulp-python#, PyPI Cloud#, pypiprivate#, pypiserver#, PyScaffold#, pywharf#, scikit-build#, scikit-build-core#, shiv#, simpleindex#, Spack#, zest.releaser#, Standard Library Projects#, ensurepip#, http.server#, venv#",
+Glossary#,,
+How to Get Support#,,
+Contribute to this guide#,"Documentation types#, Tutorials#, Guides#, Discussions#, Specifications#, Translations#, Adding a language#, Following reStructuredText syntax#, Building the guide locally#, Where the guide is deployed#, Style guide#, Purpose#, Scope#, Audience#, Voice and tone#, Conventions and mechanics#",`some ref`_ -> `TRANSLATED TEXT HERE`_
+News#,"September 2019#, August 2019#, July 2019#, June 2019#, May 2019#, April 2019#, March 2019#, February 2019#, January 2019#, December 2018#, November 2018#, October 2018#, September 2018#, August 2018#, July 2018#, June 2018#, May 2018#, April 2018#, March 2018#, February 2018#, January 2018#, December 2017#, November 2017#, October 2017#, September 2017#, August 2017#, July 2017#, June 2017#, May 2017#, April 2017#, March 2017#, February 2017#",
+Sign in to GitHub,Password login alternatives,
+"Search code, repositories, users, issues, pull requests...","Use saved searches to filter your results more quickly, Folders and files, Latest commit, History, .github, .github, source, source, .git-blame-ignore-revs, .git-blame-ignore-revs, .gitignore, .gitignore, .pre-commit-config.yaml, .pre-commit-config.yaml, .readthedocs.yaml, .readthedocs.yaml, README.rst, README.rst, authors.txt, authors.txt, noxfile.py, noxfile.py, requirements.txt, requirements.txt, Repository files navigation, Code of Conduct, Contributing, License, History, About, Topics, Resources, Code of conduct, Stars, Watchers, Forks, Releases, Packages
+      0, Contributors
+      314, Languages, Footer, Footer navigation",
+Provide feedback,"Use saved searches to filter your results more quickly, Folders and files, Latest commit, History, .github, .github, source, source, .git-blame-ignore-revs, .git-blame-ignore-revs, .gitignore, .gitignore, .pre-commit-config.yaml, .pre-commit-config.yaml, .readthedocs.yaml, .readthedocs.yaml, README.rst, README.rst, authors.txt, authors.txt, noxfile.py, noxfile.py, requirements.txt, requirements.txt, Repository files navigation, Code of Conduct, Contributing, License, History, About, Topics, Resources, Code of conduct, Stars, Watchers, Forks, Releases, Packages
+      0, Contributors
+      314, Languages, Footer, Footer navigation",
+Saved searches,"Use saved searches to filter your results more quickly, Folders and files, Latest commit, History, .github, .github, source, source, .git-blame-ignore-revs, .git-blame-ignore-revs, .gitignore, .gitignore, .pre-commit-config.yaml, .pre-commit-config.yaml, .readthedocs.yaml, .readthedocs.yaml, README.rst, README.rst, authors.txt, authors.txt, noxfile.py, noxfile.py, requirements.txt, requirements.txt, Repository files navigation, Code of Conduct, Contributing, License, History, About, Topics, Resources, Code of conduct, Stars, Watchers, Forks, Releases, Packages
+      0, Contributors
+      314, Languages, Footer, Footer navigation",
+pypa/packaging.python.org,"Folders and files, Latest commit, History, .github, .github, source, source, .git-blame-ignore-revs, .git-blame-ignore-revs, .gitignore, .gitignore, .pre-commit-config.yaml, .pre-commit-config.yaml, .readthedocs.yaml, .readthedocs.yaml, README.rst, README.rst, authors.txt, authors.txt, noxfile.py, noxfile.py, requirements.txt, requirements.txt, Repository files navigation, Code of Conduct, Contributing, License, History, About, Topics, Resources, Code of conduct, Stars, Watchers, Forks, Releases, Packages
+      0, Contributors
+      314, Languages, Footer, Footer navigation",
+Python Packaging User Guide,"Code of Conduct, Contributing, License, History, About, Topics, Resources, Code of conduct, Stars, Watchers, Forks, Releases, Packages
+      0, Contributors
+      314, Languages, Footer, Footer navigation",
+Python Packaging Authority¶,Navigation,
+Sphinx,"Navigation, On this page, Site navigation, Get started¶, User Guides¶, Community guide¶, Reference guide¶",
+Welcome¶,"Get started¶, User Guides¶, Community guide¶, Reference guide¶",
+"Hi, I'm Pradyun.",,
+"Search code, repositories, users, issues, pull requests...","Use saved searches to filter your results more quickly, License, Folders and files, Latest commit, History, .github, .github, docs, docs, src/furo, src/furo, tests, tests, .gitattributes, .gitattributes, .gitignore, .gitignore, .isort.cfg, .isort.cfg, .pre-commit-config.yaml, .pre-commit-config.yaml, .readthedocs.yaml, .readthedocs.yaml, CODE_OF_CONDUCT.md, CODE_OF_CONDUCT.md, LICENSE, LICENSE, README.md, README.md, noxfile.py, noxfile.py, package-lock.json, package-lock.json, package.json, package.json, postcss.config.js, postcss.config.js, pyproject.toml, pyproject.toml, webpack.config.js, webpack.config.js, Repository files navigation, Elevator pitch, Quickstart, Contributing, Acknowledgements, What's with the name?, Used By, License, About, Topics, Resources, License, Code of conduct, Stars, Watchers, Forks, Releases
+      26, Used by 15.8k, Contributors
+      46, Languages, Footer, Footer navigation",pip install furo
+Provide feedback,"Use saved searches to filter your results more quickly, License, Folders and files, Latest commit, History, .github, .github, docs, docs, src/furo, src/furo, tests, tests, .gitattributes, .gitattributes, .gitignore, .gitignore, .isort.cfg, .isort.cfg, .pre-commit-config.yaml, .pre-commit-config.yaml, .readthedocs.yaml, .readthedocs.yaml, CODE_OF_CONDUCT.md, CODE_OF_CONDUCT.md, LICENSE, LICENSE, README.md, README.md, noxfile.py, noxfile.py, package-lock.json, package-lock.json, package.json, package.json, postcss.config.js, postcss.config.js, pyproject.toml, pyproject.toml, webpack.config.js, webpack.config.js, Repository files navigation, Elevator pitch, Quickstart, Contributing, Acknowledgements, What's with the name?, Used By, License, About, Topics, Resources, License, Code of conduct, Stars, Watchers, Forks, Releases
+      26, Used by 15.8k, Contributors
+      46, Languages, Footer, Footer navigation",pip install furo
+Saved searches,"Use saved searches to filter your results more quickly, License, Folders and files, Latest commit, History, .github, .github, docs, docs, src/furo, src/furo, tests, tests, .gitattributes, .gitattributes, .gitignore, .gitignore, .isort.cfg, .isort.cfg, .pre-commit-config.yaml, .pre-commit-config.yaml, .readthedocs.yaml, .readthedocs.yaml, CODE_OF_CONDUCT.md, CODE_OF_CONDUCT.md, LICENSE, LICENSE, README.md, README.md, noxfile.py, noxfile.py, package-lock.json, package-lock.json, package.json, package.json, postcss.config.js, postcss.config.js, pyproject.toml, pyproject.toml, webpack.config.js, webpack.config.js, Repository files navigation, Elevator pitch, Quickstart, Contributing, Acknowledgements, What's with the name?, Used By, License, About, Topics, Resources, License, Code of conduct, Stars, Watchers, Forks, Releases
+      26, Used by 15.8k, Contributors
+      46, Languages, Footer, Footer navigation",pip install furo
+pradyunsg/furo,"Folders and files, Latest commit, History, .github, .github, docs, docs, src/furo, src/furo, tests, tests, .gitattributes, .gitattributes, .gitignore, .gitignore, .isort.cfg, .isort.cfg, .pre-commit-config.yaml, .pre-commit-config.yaml, .readthedocs.yaml, .readthedocs.yaml, CODE_OF_CONDUCT.md, CODE_OF_CONDUCT.md, LICENSE, LICENSE, README.md, README.md, noxfile.py, noxfile.py, package-lock.json, package-lock.json, package.json, package.json, postcss.config.js, postcss.config.js, pyproject.toml, pyproject.toml, webpack.config.js, webpack.config.js, Repository files navigation, Elevator pitch, Quickstart, Contributing, Acknowledgements, What's with the name?, Used By, License, About, Topics, Resources, License, Code of conduct, Stars, Watchers, Forks, Releases
+      26, Used by 15.8k, Contributors
+      46, Languages, Footer, Footer navigation",pip install furo
+Furo,"Elevator pitch, Quickstart, Contributing, Acknowledgements, What's with the name?, Used By, License, About, Topics, Resources, License, Code of conduct, Stars, Watchers, Forks, Releases
+      26, Used by 15.8k, Contributors
+      46, Languages, Footer, Footer navigation",pip install furo
+Read the Docs,"Versions, Description, Repository, Project Slug, Last Built, Maintainers, Home Page, Badge, reStructuredText, Markdown, HTML, Tags, Short URLs, Translations, Default Version, 'latest' Version, Stay Updated, Thank you!, Resources, Company",".. image:: https://readthedocs.org/projects/python-packaging-user-guide/badge/?version=latest
+    :target: https://packaging.python.org/en/latest/?badge=latest
+    :alt: Documentation Status"
+packaging.python.org,"Versions, Description, Repository, Project Slug, Last Built, Maintainers, Home Page, Badge, reStructuredText, Markdown, HTML, Tags, Short URLs, Translations, Default Version, 'latest' Version, Stay Updated, Thank you!, Resources, Company",".. image:: https://readthedocs.org/projects/python-packaging-user-guide/badge/?version=latest
+    :target: https://packaging.python.org/en/latest/?badge=latest
+    :alt: Documentation Status"

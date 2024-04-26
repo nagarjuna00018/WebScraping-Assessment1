@@ -1,0 +1,532 @@
+Heading,Subheading,Pre Content
+Installing Packages#,Requirements for Installing Packages#,python3--version
+Installing Packages#,Creating Virtual Environments#,python3--version
+Installing Packages#,Use pip for Installing#,python3--version
+Installing Packages#,Installing from PyPI#,python3--version
+Installing Packages#,Source Distributions vs Wheels#,python3--version
+Installing Packages#,Upgrading packages#,python3--version
+Installing Packages#,Installing to the User Site#,python3--version
+Installing Packages#,Requirements files#,python3--version
+Installing Packages#,Installing from VCS#,python3--version
+Installing Packages#,Installing from other Indexes#,python3--version
+Installing Packages#,Installing from a local src tree#,python3--version
+Installing Packages#,Installing from local archives#,python3--version
+Installing Packages#,Installing from other sources#,python3--version
+Installing Packages#,Installing Prereleases#,python3--version
+Installing Packages#,Installing “Extras”#,python3--version
+Managing Application Dependencies#,Installing Pipenv#,python3-mpipinstall--userpipenv
+Managing Application Dependencies#,Installing packages for your project#,python3-mpipinstall--userpipenv
+Managing Application Dependencies#,Using installed packages#,python3-mpipinstall--userpipenv
+Managing Application Dependencies#,Next steps#,python3-mpipinstall--userpipenv
+Managing Application Dependencies#,Other Tools for Application Dependency Management#,python3-mpipinstall--userpipenv
+Packaging Python Projects#,A simple project#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Creating the package files#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Creating a test directory#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Choosing a build backend#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Creating README.md#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Creating a LICENSE#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Including other files#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Generating distribution archives#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Uploading the distribution archives#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Installing your newly uploaded package#,python3-mpipinstall--upgradepip
+Packaging Python Projects#,Next steps#,python3-mpipinstall--upgradepip
+Installation#,Create and Use Virtual Environments#,python3-mvenv.venv
+Installation#,Prepare pip#,python3-mvenv.venv
+Installation#,Install packages using pip#,python3-mvenv.venv
+Installation#,Upgrading packages#,python3-mvenv.venv
+Installation#,Using a requirements file#,python3-mvenv.venv
+Installation#,Freezing dependencies#,python3-mvenv.venv
+Installation#,Fedora#,sudodnfinstallpython3-pippython3-wheel
+Installation#,CentOS/RHEL#,sudodnfinstallpython3-pippython3-wheel
+Installation#,openSUSE#,sudodnfinstallpython3-pippython3-wheel
+Installation#,Debian/Ubuntu and derivatives#,sudodnfinstallpython3-pippython3-wheel
+Installation#,Arch Linux#,sudodnfinstallpython3-pippython3-wheel
+Installation#,Building from source#,
+Installation#,Linux distribution packages#,
+Installation#,Windows installers#,
+Installation#,macOS installers and package managers#,
+Installation#,SciPy distributions#,
+Installation#,Spack#,
+Installation#,The conda cross-platform package manager#,
+Building and Publishing#,Declaring the build backend#,"[build-system]requires=[""hatchling""]build-backend=""hatchling.build"""
+Building and Publishing#,Static vs. dynamic metadata#,"[build-system]requires=[""hatchling""]build-backend=""hatchling.build"""
+Building and Publishing#,Basic information#,"[build-system]requires=[""hatchling""]build-backend=""hatchling.build"""
+Building and Publishing#,Dependencies and requirements#,"[build-system]requires=[""hatchling""]build-backend=""hatchling.build"""
+Building and Publishing#,Creating executable scripts#,"[build-system]requires=[""hatchling""]build-backend=""hatchling.build"""
+Building and Publishing#,About your project#,"[build-system]requires=[""hatchling""]build-backend=""hatchling.build"""
+Building and Publishing#,Advanced plugins#,"[build-system]requires=[""hatchling""]build-backend=""hatchling.build"""
+Building and Publishing#,A full example#,"[build-system]requires=[""hatchling""]build-backend=""hatchling.build"""
+Building and Publishing#,Requirements for packaging and distributing#,python3-mpipinstalltwine
+Building and Publishing#,Configuring your project#,python3-mpipinstalltwine
+Building and Publishing#,Working in “development mode”#,python3-mpipinstalltwine
+Building and Publishing#,Packaging your project#,python3-mpipinstalltwine
+Building and Publishing#,Uploading your Project to PyPI#,python3-mpipinstalltwine
+Building and Publishing#,Requirements#,"# setup.cfg[bdist_wheel]universal=0# Make the generated wheels have ""py3"" tag"
+Building and Publishing#,Dealing with the universal wheels#,"# setup.cfg[bdist_wheel]universal=0# Make the generated wheels have ""py3"" tag"
+Building and Publishing#,Defining the Python version required#,"# setup.cfg[bdist_wheel]universal=0# Make the generated wheels have ""py3"" tag"
+Building and Publishing#,Dropping a Python release#,"# setup.cfg[bdist_wheel]universal=0# Make the generated wheels have ""py3"" tag"
+Building and Publishing#,An overview of binary extensions#,count(Pythonminorversions)*count(OS)*count(architectures)
+Building and Publishing#,Implementing binary extensions#,count(Pythonminorversions)*count(OS)*count(architectures)
+Building and Publishing#,Building binary extensions#,count(Pythonminorversions)*count(OS)*count(architectures)
+Building and Publishing#,Publishing binary extensions#,count(Pythonminorversions)*count(OS)*count(architectures)
+Building and Publishing#,Additional resources#,count(Pythonminorversions)*count(OS)*count(architectures)
+Building and Publishing#,Creating a namespace package#,"mynamespace/
+    __init__.py
+    subpackage_a/
+        __init__.py
+        ...
+    subpackage_b/
+        __init__.py
+        ...
+    module_b.py
+pyproject.toml"
+Building and Publishing#,Using naming convention#,"importimportlibimportpkgutildiscovered_plugins={name:importlib.import_module(name)forfinder,name,ispkginpkgutil.iter_modules()ifname.startswith('flask_')}"
+Building and Publishing#,Using namespace packages#,"importimportlibimportpkgutildiscovered_plugins={name:importlib.import_module(name)forfinder,name,ispkginpkgutil.iter_modules()ifname.startswith('flask_')}"
+Building and Publishing#,Using package metadata#,"importimportlibimportpkgutildiscovered_plugins={name:importlib.import_module(name)forfinder,name,ispkginpkgutil.iter_modules()ifname.startswith('flask_')}"
+Building and Publishing#,Registering your account#,twineupload--repositorytestpypidist/*
+Building and Publishing#,Using TestPyPI with Twine#,twineupload--repositorytestpypidist/*
+Building and Publishing#,Using TestPyPI with pip#,twineupload--repositorytestpypidist/*
+Building and Publishing#,Setting up TestPyPI in.pypirc#,twineupload--repositorytestpypidist/*
+Building and Publishing#,Creating a README file#,python3-mpipinstall--user--upgradesetuptoolswheeltwine
+Building and Publishing#,Including your README in your package’s metadata#,python3-mpipinstall--user--upgradesetuptoolswheeltwine
+Building and Publishing#,Validating reStructuredText markup#,python3-mpipinstall--user--upgradesetuptoolswheeltwine
+Building and Publishing#,Configuring trusted publishing#,name:Publish Python 🐍 distribution 📦 to PyPI and TestPyPIon:push
+Building and Publishing#,Creating a workflow definition#,name:Publish Python 🐍 distribution 📦 to PyPI and TestPyPIon:push
+Building and Publishing#,Checking out the project and building distributions#,name:Publish Python 🐍 distribution 📦 to PyPI and TestPyPIon:push
+Building and Publishing#,Defining a workflow job environment#,name:Publish Python 🐍 distribution 📦 to PyPI and TestPyPIon:push
+Building and Publishing#,Publishing the distribution to PyPI#,name:Publish Python 🐍 distribution 📦 to PyPI and TestPyPIon:push
+Building and Publishing#,Signing the distribution packages#,name:Publish Python 🐍 distribution 📦 to PyPI and TestPyPIon:push
+Building and Publishing#,Separate workflow for publishing to TestPyPI#,name:Publish Python 🐍 distribution 📦 to PyPI and TestPyPIon:push
+Building and Publishing#,The whole CI/CD workflow#,name:Publish Python 🐍 distribution 📦 to PyPI and TestPyPIon:push
+Building and Publishing#,"That’s all, folks!#",name:Publish Python 🐍 distribution 📦 to PyPI and TestPyPIon:push
+Building and Publishing#,Shouldpyproject.tomlbe added?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Building and Publishing#,Shouldsetup.pybe deleted?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Building and Publishing#,Where to start?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Building and Publishing#,How to handle additional build-time dependencies?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Building and Publishing#,What is the build isolation feature?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Building and Publishing#,How to handle packaging metadata?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Building and Publishing#,How to handle dynamic metadata?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Building and Publishing#,What if something that can not be changed expects asetup.pyfile?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Building and Publishing#,Where to read more about this?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Hosting#,Caching with pip#,"python3-mpipwheel--wheel-dir=/tmp/wheelhouseSomeProject
+python3-mpipinstall--no-index--find-links=/tmp/wheelhouseSomeProject"
+Hosting#,Existing projects#,"python3-mpipwheel--wheel-dir=/tmp/wheelhouseSomeProject
+python3-mpipinstall--no-index--find-links=/tmp/wheelhouseSomeProject"
+Hosting#,“Manual” repository#,python3-mpipinstall--extra-index-urlhttps://python.example.com/foobar
+Hosting#,Existing projects#,python3-mpipinstall--extra-index-urlhttps://python.example.com/foobar
+Tool recommendations#,Virtual environments#,
+Tool recommendations#,Installing packages#,
+Tool recommendations#,Lock files#,
+Tool recommendations#,Build backends#,
+Tool recommendations#,Building distributions#,
+Tool recommendations#,Uploading to PyPI#,
+Tool recommendations#,Workflow tools#,
+Analyzing PyPI package downloads#,Background#,"#standardSQL
+SELECT COUNT(*) AS num_downloads
+FROM `bigquery-public-data.pypi.file_downloads`
+WHERE file.project = 'pytest'
+  -- Only query the last 30 days of history
+  AND DATE(timestamp)
+    BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+    AND CURRENT_DATE()"
+Analyzing PyPI package downloads#,Public dataset#,"#standardSQL
+SELECT COUNT(*) AS num_downloads
+FROM `bigquery-public-data.pypi.file_downloads`
+WHERE file.project = 'pytest'
+  -- Only query the last 30 days of history
+  AND DATE(timestamp)
+    BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+    AND CURRENT_DATE()"
+Analyzing PyPI package downloads#,Caveats#,"#standardSQL
+SELECT COUNT(*) AS num_downloads
+FROM `bigquery-public-data.pypi.file_downloads`
+WHERE file.project = 'pytest'
+  -- Only query the last 30 days of history
+  AND DATE(timestamp)
+    BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+    AND CURRENT_DATE()"
+Analyzing PyPI package downloads#,Additional tools#,"#standardSQL
+SELECT COUNT(*) AS num_downloads
+FROM `bigquery-public-data.pypi.file_downloads`
+WHERE file.project = 'pytest'
+  -- Only query the last 30 days of history
+  AND DATE(timestamp)
+    BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+    AND CURRENT_DATE()"
+Analyzing PyPI package downloads#,References#,"#standardSQL
+SELECT COUNT(*) AS num_downloads
+FROM `bigquery-public-data.pypi.file_downloads`
+WHERE file.project = 'pytest'
+  -- Only query the last 30 days of history
+  AND DATE(timestamp)
+    BETWEEN DATE_SUB(CURRENT_DATE(), INTERVAL 30 DAY)
+    AND CURRENT_DATE()"
+Versioning#,Valid version numbers#,
+Versioning#,Semantic versioning vs. calendar versioning#,
+Versioning#,Local version identifiers#,
+Deploying Python applications#,Overview#,"FIXME
+
+Meaning: x86, x64, ARM, others?
+
+For Python-only distributions, it *should* be straightforward to deploy on all
+platforms where Python can run.
+
+For distributions with binary extensions, deployment is major headache.  Not only
+must the extensions be built on all the combinations of operating system and
+hardware platform, but they must also be tested, preferably on continuous
+integration platforms.  The issues are similar to the ""multiple Python
+versions"" section above, not sure whether this should be a separate section.
+Even on Windows x64, both the 32 bit and 64 bit versions of Python enjoy
+significant usage."
+Deploying Python applications#,OS packaging & installers#,"FIXME
+
+Meaning: x86, x64, ARM, others?
+
+For Python-only distributions, it *should* be straightforward to deploy on all
+platforms where Python can run.
+
+For distributions with binary extensions, deployment is major headache.  Not only
+must the extensions be built on all the combinations of operating system and
+hardware platform, but they must also be tested, preferably on continuous
+integration platforms.  The issues are similar to the ""multiple Python
+versions"" section above, not sure whether this should be a separate section.
+Even on Windows x64, both the 32 bit and 64 bit versions of Python enjoy
+significant usage."
+Deploying Python applications#,Application bundles#,"FIXME
+
+Meaning: x86, x64, ARM, others?
+
+For Python-only distributions, it *should* be straightforward to deploy on all
+platforms where Python can run.
+
+For distributions with binary extensions, deployment is major headache.  Not only
+must the extensions be built on all the combinations of operating system and
+hardware platform, but they must also be tested, preferably on continuous
+integration platforms.  The issues are similar to the ""multiple Python
+versions"" section above, not sure whether this should be a separate section.
+Even on Windows x64, both the 32 bit and 64 bit versions of Python enjoy
+significant usage."
+Deploying Python applications#,Configuration management#,"FIXME
+
+Meaning: x86, x64, ARM, others?
+
+For Python-only distributions, it *should* be straightforward to deploy on all
+platforms where Python can run.
+
+For distributions with binary extensions, deployment is major headache.  Not only
+must the extensions be built on all the combinations of operating system and
+hardware platform, but they must also be tested, preferably on continuous
+integration platforms.  The issues are similar to the ""multiple Python
+versions"" section above, not sure whether this should be a separate section.
+Even on Windows x64, both the 32 bit and 64 bit versions of Python enjoy
+significant usage."
+install_requires vs requirements files#,install_requires#,"install_requires=['A','B']"
+install_requires vs requirements files#,Requirements files#,"install_requires=['A','B']"
+Distribution package vs. import package#,What’s a distribution package?#,
+Distribution package vs. import package#,What’s an import package?#,
+Distribution package vs. import package#,What are the links between distribution packages and import packages?#,
+Distribution package vs. import package#,How do distribution package names and import package names compare?#,
+Package Formats#,What is a source distribution?#,
+Package Formats#,What is a wheel?#,
+Package Formats#,What about eggs?#,
+Issetup.pydeprecated?#,What commands should be used instead?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Issetup.pydeprecated?#,What about other commands?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Issetup.pydeprecated?#,What about custom commands?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Issetup.pydeprecated?#,What about custom build steps?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Issetup.pydeprecated?#,Shouldsetup.pybe deleted?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Issetup.pydeprecated?#,Ispyproject.tomlmandatory?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Issetup.pydeprecated?#,Why? What does it all mean?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Issetup.pydeprecated?#,Where to read more about this?#,"[build-system]requires=[""setuptools""]build-backend=""setuptools.build_meta"""
+Package Distribution Metadata#,Name format#,^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+Package Distribution Metadata#,Name normalization#,^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+Package Distribution Metadata#,History#,^([A-Z0-9]|[A-Z0-9][A-Z0-9._-]*[A-Z0-9])$
+Package Distribution Metadata#,Metadata-Version#,Metadata-Version: 2.3
+Package Distribution Metadata#,Name#,Metadata-Version: 2.3
+Package Distribution Metadata#,Version#,Metadata-Version: 2.3
+Package Distribution Metadata#,Dynamic (multiple use)#,Metadata-Version: 2.3
+Package Distribution Metadata#,Platform (multiple use)#,Metadata-Version: 2.3
+Package Distribution Metadata#,Supported-Platform (multiple use)#,Metadata-Version: 2.3
+Package Distribution Metadata#,Summary#,Metadata-Version: 2.3
+Package Distribution Metadata#,Description#,Metadata-Version: 2.3
+Package Distribution Metadata#,Description-Content-Type#,Metadata-Version: 2.3
+Package Distribution Metadata#,Keywords#,Metadata-Version: 2.3
+Package Distribution Metadata#,Home-page#,Metadata-Version: 2.3
+Package Distribution Metadata#,Download-URL#,Metadata-Version: 2.3
+Package Distribution Metadata#,Author#,Metadata-Version: 2.3
+Package Distribution Metadata#,Author-email#,Metadata-Version: 2.3
+Package Distribution Metadata#,Maintainer#,Metadata-Version: 2.3
+Package Distribution Metadata#,Maintainer-email#,Metadata-Version: 2.3
+Package Distribution Metadata#,License#,Metadata-Version: 2.3
+Package Distribution Metadata#,Classifier (multiple use)#,Metadata-Version: 2.3
+Package Distribution Metadata#,Requires-Dist (multiple use)#,Metadata-Version: 2.3
+Package Distribution Metadata#,Requires-Python#,Metadata-Version: 2.3
+Package Distribution Metadata#,Requires-External (multiple use)#,Metadata-Version: 2.3
+Package Distribution Metadata#,Project-URL (multiple-use)#,Metadata-Version: 2.3
+Package Distribution Metadata#,Provides-Extra (multiple use)#,Metadata-Version: 2.3
+Package Distribution Metadata#,Rarely Used Fields#,Metadata-Version: 2.3
+Package Distribution Metadata#,Deprecated Fields#,Metadata-Version: 2.3
+Package Distribution Metadata#,History#,Metadata-Version: 2.3
+Package Distribution Metadata#,Definitions#,[N!]N(.N)*[{a|b|rc}N][.postN][.devN]
+Package Distribution Metadata#,Version scheme#,[N!]N(.N)*[{a|b|rc}N][.postN][.devN]
+Package Distribution Metadata#,Version specifiers#,[N!]N(.N)*[{a|b|rc}N][.postN][.devN]
+Package Distribution Metadata#,Direct references#,[N!]N(.N)*[{a|b|rc}N][.postN][.devN]
+Package Distribution Metadata#,Summary of differences from pkg_resources.parse_version#,[N!]N(.N)*[{a|b|rc}N][.postN][.devN]
+Package Distribution Metadata#,Appendix: Parsing version strings with regular expressions#,[N!]N(.N)*[{a|b|rc}N][.postN][.devN]
+Package Distribution Metadata#,History#,[N!]N(.N)*[{a|b|rc}N][.postN][.devN]
+Package Distribution Metadata#,Specification#,"requests [security,tests] >= 2.8.1, == 2.8.* ; python_version < ""2.7"""
+Package Distribution Metadata#,Complete Grammar#,"requests [security,tests] >= 2.8.1, == 2.8.* ; python_version < ""2.7"""
+Package Distribution Metadata#,History#,"requests [security,tests] >= 2.8.1, == 2.8.* ; python_version < ""2.7"""
+Package Distribution Metadata#,References#,"requests [security,tests] >= 2.8.1, == 2.8.* ; python_version < ""2.7"""
+Package Distribution Metadata#,Declaring build system dependencies: the[build-system]table#,"[build-system]# Minimum requirements for the build system to execute.requires=[""setuptools""]"
+Package Distribution Metadata#,Declaring project metadata: the[project]table#,"[build-system]# Minimum requirements for the build system to execute.requires=[""setuptools""]"
+Package Distribution Metadata#,Arbitrary tool configuration: the[tool]table#,"[build-system]# Minimum requirements for the build system to execute.requires=[""setuptools""]"
+Package Distribution Metadata#,History#,"[build-system]# Minimum requirements for the build system to execute.requires=[""setuptools""]"
+Package Distribution Metadata#,Specification#,"# /// some-toml# embedded-csharp = """"""# /// <summary># /// text# ///# /// </summary># public class MyClass { }# """"""# ///"
+Package Distribution Metadata#,Reference Implementation#,"# /// some-toml# embedded-csharp = """"""# /// <summary># /// text# ///# /// </summary># public class MyClass { }# """"""# ///"
+Package Distribution Metadata#,Recommendations#,"# /// some-toml# embedded-csharp = """"""# /// <summary># /// text# ///# /// </summary># public class MyClass { }# """"""# ///"
+Package Distribution Metadata#,History#,"# /// some-toml# embedded-csharp = """"""# /// <summary># /// text# ///# /// </summary># public class MyClass { }# """"""# ///"
+Package Distribution Metadata#,Overview#,"importreimportsubprocessdefget_musl_major_minor(so:str)->tuple[int,int]|None:""""""Detect musl runtime version.Returns a two-tuple ``(major, minor)`` that indicates musllibrary's version, or ``None`` if the given libc .so does notoutput expected information.The libc library should output something like this to stderr::musl libc (x86_64)Version 1.2.2Dynamic Program Loader""""""proc=subprocess.run([so],stderr=subprocess.PIPE,text=True)lines=(line.strip()forlineinproc.stderr.splitlines())lines=[lineforlineinlinesifline]iflen(lines)<2orlines[0][:4]!=""musl"":returnNonematch=re.match(r""Version (\d+)\.(\d+)"",lines[1])ifmatch:return(int(match.group(1)),int(match.group(2)))returnNone"
+Package Distribution Metadata#,Python Tag#,"importreimportsubprocessdefget_musl_major_minor(so:str)->tuple[int,int]|None:""""""Detect musl runtime version.Returns a two-tuple ``(major, minor)`` that indicates musllibrary's version, or ``None`` if the given libc .so does notoutput expected information.The libc library should output something like this to stderr::musl libc (x86_64)Version 1.2.2Dynamic Program Loader""""""proc=subprocess.run([so],stderr=subprocess.PIPE,text=True)lines=(line.strip()forlineinproc.stderr.splitlines())lines=[lineforlineinlinesifline]iflen(lines)<2orlines[0][:4]!=""musl"":returnNonematch=re.match(r""Version (\d+)\.(\d+)"",lines[1])ifmatch:return(int(match.group(1)),int(match.group(2)))returnNone"
+Package Distribution Metadata#,ABI Tag#,"importreimportsubprocessdefget_musl_major_minor(so:str)->tuple[int,int]|None:""""""Detect musl runtime version.Returns a two-tuple ``(major, minor)`` that indicates musllibrary's version, or ``None`` if the given libc .so does notoutput expected information.The libc library should output something like this to stderr::musl libc (x86_64)Version 1.2.2Dynamic Program Loader""""""proc=subprocess.run([so],stderr=subprocess.PIPE,text=True)lines=(line.strip()forlineinproc.stderr.splitlines())lines=[lineforlineinlinesifline]iflen(lines)<2orlines[0][:4]!=""musl"":returnNonematch=re.match(r""Version (\d+)\.(\d+)"",lines[1])ifmatch:return(int(match.group(1)),int(match.group(2)))returnNone"
+Package Distribution Metadata#,Platform Tag#,"importreimportsubprocessdefget_musl_major_minor(so:str)->tuple[int,int]|None:""""""Detect musl runtime version.Returns a two-tuple ``(major, minor)`` that indicates musllibrary's version, or ``None`` if the given libc .so does notoutput expected information.The libc library should output something like this to stderr::musl libc (x86_64)Version 1.2.2Dynamic Program Loader""""""proc=subprocess.run([so],stderr=subprocess.PIPE,text=True)lines=(line.strip()forlineinproc.stderr.splitlines())lines=[lineforlineinlinesifline]iflen(lines)<2orlines[0][:4]!=""musl"":returnNonematch=re.match(r""Version (\d+)\.(\d+)"",lines[1])ifmatch:return(int(match.group(1)),int(match.group(2)))returnNone"
+Package Distribution Metadata#,Use#,"importreimportsubprocessdefget_musl_major_minor(so:str)->tuple[int,int]|None:""""""Detect musl runtime version.Returns a two-tuple ``(major, minor)`` that indicates musllibrary's version, or ``None`` if the given libc .so does notoutput expected information.The libc library should output something like this to stderr::musl libc (x86_64)Version 1.2.2Dynamic Program Loader""""""proc=subprocess.run([so],stderr=subprocess.PIPE,text=True)lines=(line.strip()forlineinproc.stderr.splitlines())lines=[lineforlineinlinesifline]iflen(lines)<2orlines[0][:4]!=""musl"":returnNonematch=re.match(r""Version (\d+)\.(\d+)"",lines[1])ifmatch:return(int(match.group(1)),int(match.group(2)))returnNone"
+Package Distribution Metadata#,Compressed Tag Sets#,"importreimportsubprocessdefget_musl_major_minor(so:str)->tuple[int,int]|None:""""""Detect musl runtime version.Returns a two-tuple ``(major, minor)`` that indicates musllibrary's version, or ``None`` if the given libc .so does notoutput expected information.The libc library should output something like this to stderr::musl libc (x86_64)Version 1.2.2Dynamic Program Loader""""""proc=subprocess.run([so],stderr=subprocess.PIPE,text=True)lines=(line.strip()forlineinproc.stderr.splitlines())lines=[lineforlineinlinesifline]iflen(lines)<2orlines[0][:4]!=""musl"":returnNonematch=re.match(r""Version (\d+)\.(\d+)"",lines[1])ifmatch:return(int(match.group(1)),int(match.group(2)))returnNone"
+Package Distribution Metadata#,FAQ#,"importreimportsubprocessdefget_musl_major_minor(so:str)->tuple[int,int]|None:""""""Detect musl runtime version.Returns a two-tuple ``(major, minor)`` that indicates musllibrary's version, or ``None`` if the given libc .so does notoutput expected information.The libc library should output something like this to stderr::musl libc (x86_64)Version 1.2.2Dynamic Program Loader""""""proc=subprocess.run([so],stderr=subprocess.PIPE,text=True)lines=(line.strip()forlineinproc.stderr.splitlines())lines=[lineforlineinlinesifline]iflen(lines)<2orlines[0][:4]!=""musl"":returnNonematch=re.match(r""Version (\d+)\.(\d+)"",lines[1])ifmatch:return(int(match.group(1)),int(match.group(2)))returnNone"
+Package Distribution Metadata#,History#,"importreimportsubprocessdefget_musl_major_minor(so:str)->tuple[int,int]|None:""""""Detect musl runtime version.Returns a two-tuple ``(major, minor)`` that indicates musllibrary's version, or ``None`` if the given libc .so does notoutput expected information.The libc library should output something like this to stderr::musl libc (x86_64)Version 1.2.2Dynamic Program Loader""""""proc=subprocess.run([so],stderr=subprocess.PIPE,text=True)lines=(line.strip()forlineinproc.stderr.splitlines())lines=[lineforlineinlinesifline]iflen(lines)<2orlines[0][:4]!=""musl"":returnNonematch=re.match(r""Version (\d+)\.(\d+)"",lines[1])ifmatch:return(int(match.group(1)),int(match.group(2)))returnNone"
+Package Installation Metadata#,The .dist-info directory#,"/usr/bin/black,sha256=iFlOnL32lIa-RKk-MDihcbJ37wxmRbE4xk6eVYVTTeU,220
+../../../bin/blackd,sha256=lCadt4mcU-B67O1gkQVh7-vsKgLpx6ny1le34Jz6UVo,221
+__pycache__/black.cpython-38.pyc,,
+__pycache__/blackd.cpython-38.pyc,,
+black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
+black-19.10b0.dist-info/RECORD,,
+black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
+blackd.py,sha256=JCxaK4hLkMRwVfZMj8FRpRRYC0172-juKqbN22bISLE,6672
+blib2to3/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+blib2to3/__pycache__/__init__.cpython-38.pyc,,
+blib2to3/__pycache__/pygram.cpython-38.pyc,sha256=zpXgX4FHDuoeIQKO_v0sRsB-RzQFsuoKoBYvraAdoJw,1512
+blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
+blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
+blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530"
+Package Installation Metadata#,The METADATA file#,"/usr/bin/black,sha256=iFlOnL32lIa-RKk-MDihcbJ37wxmRbE4xk6eVYVTTeU,220
+../../../bin/blackd,sha256=lCadt4mcU-B67O1gkQVh7-vsKgLpx6ny1le34Jz6UVo,221
+__pycache__/black.cpython-38.pyc,,
+__pycache__/blackd.cpython-38.pyc,,
+black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
+black-19.10b0.dist-info/RECORD,,
+black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
+blackd.py,sha256=JCxaK4hLkMRwVfZMj8FRpRRYC0172-juKqbN22bISLE,6672
+blib2to3/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+blib2to3/__pycache__/__init__.cpython-38.pyc,,
+blib2to3/__pycache__/pygram.cpython-38.pyc,sha256=zpXgX4FHDuoeIQKO_v0sRsB-RzQFsuoKoBYvraAdoJw,1512
+blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
+blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
+blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530"
+Package Installation Metadata#,The RECORD file#,"/usr/bin/black,sha256=iFlOnL32lIa-RKk-MDihcbJ37wxmRbE4xk6eVYVTTeU,220
+../../../bin/blackd,sha256=lCadt4mcU-B67O1gkQVh7-vsKgLpx6ny1le34Jz6UVo,221
+__pycache__/black.cpython-38.pyc,,
+__pycache__/blackd.cpython-38.pyc,,
+black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
+black-19.10b0.dist-info/RECORD,,
+black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
+blackd.py,sha256=JCxaK4hLkMRwVfZMj8FRpRRYC0172-juKqbN22bISLE,6672
+blib2to3/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+blib2to3/__pycache__/__init__.cpython-38.pyc,,
+blib2to3/__pycache__/pygram.cpython-38.pyc,sha256=zpXgX4FHDuoeIQKO_v0sRsB-RzQFsuoKoBYvraAdoJw,1512
+blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
+blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
+blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530"
+Package Installation Metadata#,The INSTALLER file#,"/usr/bin/black,sha256=iFlOnL32lIa-RKk-MDihcbJ37wxmRbE4xk6eVYVTTeU,220
+../../../bin/blackd,sha256=lCadt4mcU-B67O1gkQVh7-vsKgLpx6ny1le34Jz6UVo,221
+__pycache__/black.cpython-38.pyc,,
+__pycache__/blackd.cpython-38.pyc,,
+black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
+black-19.10b0.dist-info/RECORD,,
+black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
+blackd.py,sha256=JCxaK4hLkMRwVfZMj8FRpRRYC0172-juKqbN22bISLE,6672
+blib2to3/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+blib2to3/__pycache__/__init__.cpython-38.pyc,,
+blib2to3/__pycache__/pygram.cpython-38.pyc,sha256=zpXgX4FHDuoeIQKO_v0sRsB-RzQFsuoKoBYvraAdoJw,1512
+blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
+blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
+blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530"
+Package Installation Metadata#,The entry_points.txt file#,"/usr/bin/black,sha256=iFlOnL32lIa-RKk-MDihcbJ37wxmRbE4xk6eVYVTTeU,220
+../../../bin/blackd,sha256=lCadt4mcU-B67O1gkQVh7-vsKgLpx6ny1le34Jz6UVo,221
+__pycache__/black.cpython-38.pyc,,
+__pycache__/blackd.cpython-38.pyc,,
+black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
+black-19.10b0.dist-info/RECORD,,
+black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
+blackd.py,sha256=JCxaK4hLkMRwVfZMj8FRpRRYC0172-juKqbN22bISLE,6672
+blib2to3/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+blib2to3/__pycache__/__init__.cpython-38.pyc,,
+blib2to3/__pycache__/pygram.cpython-38.pyc,sha256=zpXgX4FHDuoeIQKO_v0sRsB-RzQFsuoKoBYvraAdoJw,1512
+blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
+blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
+blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530"
+Package Installation Metadata#,The direct_url.json file#,"/usr/bin/black,sha256=iFlOnL32lIa-RKk-MDihcbJ37wxmRbE4xk6eVYVTTeU,220
+../../../bin/blackd,sha256=lCadt4mcU-B67O1gkQVh7-vsKgLpx6ny1le34Jz6UVo,221
+__pycache__/black.cpython-38.pyc,,
+__pycache__/blackd.cpython-38.pyc,,
+black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
+black-19.10b0.dist-info/RECORD,,
+black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
+blackd.py,sha256=JCxaK4hLkMRwVfZMj8FRpRRYC0172-juKqbN22bISLE,6672
+blib2to3/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+blib2to3/__pycache__/__init__.cpython-38.pyc,,
+blib2to3/__pycache__/pygram.cpython-38.pyc,sha256=zpXgX4FHDuoeIQKO_v0sRsB-RzQFsuoKoBYvraAdoJw,1512
+blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
+blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
+blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530"
+Package Installation Metadata#,Intentionally preventing changes to installed packages#,"/usr/bin/black,sha256=iFlOnL32lIa-RKk-MDihcbJ37wxmRbE4xk6eVYVTTeU,220
+../../../bin/blackd,sha256=lCadt4mcU-B67O1gkQVh7-vsKgLpx6ny1le34Jz6UVo,221
+__pycache__/black.cpython-38.pyc,,
+__pycache__/blackd.cpython-38.pyc,,
+black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
+black-19.10b0.dist-info/RECORD,,
+black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
+blackd.py,sha256=JCxaK4hLkMRwVfZMj8FRpRRYC0172-juKqbN22bISLE,6672
+blib2to3/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+blib2to3/__pycache__/__init__.cpython-38.pyc,,
+blib2to3/__pycache__/pygram.cpython-38.pyc,sha256=zpXgX4FHDuoeIQKO_v0sRsB-RzQFsuoKoBYvraAdoJw,1512
+blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
+blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
+blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530"
+Package Installation Metadata#,History#,"/usr/bin/black,sha256=iFlOnL32lIa-RKk-MDihcbJ37wxmRbE4xk6eVYVTTeU,220
+../../../bin/blackd,sha256=lCadt4mcU-B67O1gkQVh7-vsKgLpx6ny1le34Jz6UVo,221
+__pycache__/black.cpython-38.pyc,,
+__pycache__/blackd.cpython-38.pyc,,
+black-19.10b0.dist-info/INSTALLER,sha256=zuuue4knoyJ-UwPPXg8fezS7VCrXJQrAP7zeNuwvFQg,4
+black-19.10b0.dist-info/LICENSE,sha256=nAQo8MO0d5hQz1vZbhGqqK_HLUqG1KNiI9erouWNbgA,1080
+black-19.10b0.dist-info/METADATA,sha256=UN40nGoVVTSpvLrTBwNsXgZdZIwoKFSrrDDHP6B7-A0,58841
+black-19.10b0.dist-info/RECORD,,
+black.py,sha256=45IF72OgNfF8WpeNHnxV2QGfbCLubV5Xjl55cI65kYs,140161
+blackd.py,sha256=JCxaK4hLkMRwVfZMj8FRpRRYC0172-juKqbN22bISLE,6672
+blib2to3/__init__.py,sha256=9_8wL9Scv8_Cs8HJyJHGvx1vwXErsuvlsAqNZLcJQR0,8
+blib2to3/__pycache__/__init__.cpython-38.pyc,,
+blib2to3/__pycache__/pygram.cpython-38.pyc,sha256=zpXgX4FHDuoeIQKO_v0sRsB-RzQFsuoKoBYvraAdoJw,1512
+blib2to3/__pycache__/pytree.cpython-38.pyc,sha256=LYLplXtG578ZjaFeoVuoX8rmxHn-BMAamCOsJMU1b9I,24910
+blib2to3/pygram.py,sha256=mXpQPqHcamFwch0RkyJsb92Wd0kUP3TW7d-u9dWhCGY,2085
+blib2to3/pytree.py,sha256=RWj3IL4U-Ljhkn4laN0C3p7IRdfvT3aIRjTV-x9hK1c,28530"
+Package Installation Metadata#,Data model#,"importimportlibmodname,qualname_separator,qualname=object_ref.partition(':')obj=importlib.import_module(modname)ifqualname_separator:forattrinqualname.split('.'):obj=getattr(obj,attr)"
+Package Installation Metadata#,File format#,"importimportlibmodname,qualname_separator,qualname=object_ref.partition(':')obj=importlib.import_module(modname)ifqualname_separator:forattrinqualname.split('.'):obj=getattr(obj,attr)"
+Package Installation Metadata#,Use for scripts#,"importimportlibmodname,qualname_separator,qualname=object_ref.partition(':')obj=importlib.import_module(modname)ifqualname_separator:forattrinqualname.split('.'):obj=getattr(obj,attr)"
+Package Installation Metadata#,History#,"importimportlibmodname,qualname_separator,qualname=object_ref.partition(':')obj=importlib.import_module(modname)ifqualname_separator:forattrinqualname.split('.'):obj=getattr(obj,attr)"
+Package Installation Metadata#,Specification#,
+Package Installation Metadata#,Example pip commands and their effect on direct_url.json#,
+Package Installation Metadata#,History#,
+Package Installation Metadata#,Specification#,\$\{[A-Za-z0-9-_]+\}(:\$\{[A-Za-z0-9-_]+\})?
+Package Installation Metadata#,Registered VCS#,\$\{[A-Za-z0-9-_]+\}(:\$\{[A-Za-z0-9-_]+\})?
+Package Installation Metadata#,JSON Schema#,\$\{[A-Za-z0-9-_]+\}(:\$\{[A-Za-z0-9-_]+\})?
+Package Installation Metadata#,Examples#,\$\{[A-Za-z0-9-_]+\}(:\$\{[A-Za-z0-9-_]+\})?
+Package Installation Metadata#,History#,\$\{[A-Za-z0-9-_]+\}(:\$\{[A-Za-z0-9-_]+\})?
+Package Installation Metadata#,Runtime detection of virtual environments#,
+Package Installation Metadata#,Declaring installation environments as Python virtual environments#,
+Package Installation Metadata#,History#,
+Package Installation Metadata#,Terminology#,"[externally-managed]Error=To install Python packages system-wide, try apt installpython3-xyz, where xyz is the package you are trying toinstall.If you wish to install a non-Debian-packaged Python package,create a virtual environment using python3 -m venv path/to/venv.Then use path/to/venv/bin/python and path/to/venv/bin/pip. Makesure you have python3-full installed.If you wish to install a non-Debian packaged Python application,it may be easiest to use pipx install xyz, which will manage avirtual environment for you. Make sure you have pipx installed.See /usr/share/doc/python3.9/README.venv for more information."
+Package Installation Metadata#,Overview#,"[externally-managed]Error=To install Python packages system-wide, try apt installpython3-xyz, where xyz is the package you are trying toinstall.If you wish to install a non-Debian-packaged Python package,create a virtual environment using python3 -m venv path/to/venv.Then use path/to/venv/bin/python and path/to/venv/bin/pip. Makesure you have python3-full installed.If you wish to install a non-Debian packaged Python application,it may be easiest to use pipx install xyz, which will manage avirtual environment for you. Make sure you have pipx installed.See /usr/share/doc/python3.9/README.venv for more information."
+Package Installation Metadata#,Marking an interpreter as using an external package manager#,"[externally-managed]Error=To install Python packages system-wide, try apt installpython3-xyz, where xyz is the package you are trying toinstall.If you wish to install a non-Debian-packaged Python package,create a virtual environment using python3 -m venv path/to/venv.Then use path/to/venv/bin/python and path/to/venv/bin/pip. Makesure you have python3-full installed.If you wish to install a non-Debian packaged Python application,it may be easiest to use pipx install xyz, which will manage avirtual environment for you. Make sure you have pipx installed.See /usr/share/doc/python3.9/README.venv for more information."
+Package Installation Metadata#,Writing to only the targetsysconfigscheme#,"[externally-managed]Error=To install Python packages system-wide, try apt installpython3-xyz, where xyz is the package you are trying toinstall.If you wish to install a non-Debian-packaged Python package,create a virtual environment using python3 -m venv path/to/venv.Then use path/to/venv/bin/python and path/to/venv/bin/pip. Makesure you have python3-full installed.If you wish to install a non-Debian packaged Python application,it may be easiest to use pipx install xyz, which will manage avirtual environment for you. Make sure you have pipx installed.See /usr/share/doc/python3.9/README.venv for more information."
+Package Installation Metadata#,Recommendations for distros#,"[externally-managed]Error=To install Python packages system-wide, try apt installpython3-xyz, where xyz is the package you are trying toinstall.If you wish to install a non-Debian-packaged Python package,create a virtual environment using python3 -m venv path/to/venv.Then use path/to/venv/bin/python and path/to/venv/bin/pip. Makesure you have python3-full installed.If you wish to install a non-Debian packaged Python application,it may be easiest to use pipx install xyz, which will manage avirtual environment for you. Make sure you have pipx installed.See /usr/share/doc/python3.9/README.venv for more information."
+Package Installation Metadata#,Implementation Notes#,"[externally-managed]Error=To install Python packages system-wide, try apt installpython3-xyz, where xyz is the package you are trying toinstall.If you wish to install a non-Debian-packaged Python package,create a virtual environment using python3 -m venv path/to/venv.Then use path/to/venv/bin/python and path/to/venv/bin/pip. Makesure you have python3-full installed.If you wish to install a non-Debian packaged Python application,it may be easiest to use pipx install xyz, which will manage avirtual environment for you. Make sure you have pipx installed.See /usr/share/doc/python3.9/README.venv for more information."
+Package Installation Metadata#,Copyright#,"[externally-managed]Error=To install Python packages system-wide, try apt installpython3-xyz, where xyz is the package you are trying toinstall.If you wish to install a non-Debian-packaged Python package,create a virtual environment using python3 -m venv path/to/venv.Then use path/to/venv/bin/python and path/to/venv/bin/pip. Makesure you have python3-full installed.If you wish to install a non-Debian packaged Python application,it may be easiest to use pipx install xyz, which will manage avirtual environment for you. Make sure you have pipx installed.See /usr/share/doc/python3.9/README.venv for more information."
+Package Installation Metadata#,History#,"[externally-managed]Error=To install Python packages system-wide, try apt installpython3-xyz, where xyz is the package you are trying toinstall.If you wish to install a non-Debian-packaged Python package,create a virtual environment using python3 -m venv path/to/venv.Then use path/to/venv/bin/python and path/to/venv/bin/pip. Makesure you have python3-full installed.If you wish to install a non-Debian packaged Python application,it may be easiest to use pipx install xyz, which will manage avirtual environment for you. Make sure you have pipx installed.See /usr/share/doc/python3.9/README.venv for more information."
+Package Distribution File Formats#,Source trees#,
+Package Distribution File Formats#,Source distribution file name#,
+Package Distribution File Formats#,Source distribution file format#,
+Package Distribution File Formats#,Source distribution archive features#,
+Package Distribution File Formats#,History#,
+Package Distribution File Formats#,Details#,"Wheel-Version: 1.0
+Generator: bdist_wheel 1.0
+Root-Is-Purelib: true
+Tag: py2-none-any
+Tag: py3-none-any
+Build: 1"
+Package Distribution File Formats#,FAQ#,"Wheel-Version: 1.0
+Generator: bdist_wheel 1.0
+Root-Is-Purelib: true
+Tag: py2-none-any
+Tag: py3-none-any
+Build: 1"
+Package Distribution File Formats#,History#,"Wheel-Version: 1.0
+Generator: bdist_wheel 1.0
+Root-Is-Purelib: true
+Tag: py2-none-any
+Tag: py3-none-any
+Build: 1"
+Package Distribution File Formats#,Appendix#,"Wheel-Version: 1.0
+Generator: bdist_wheel 1.0
+Root-Is-Purelib: true
+Tag: py2-none-any
+Tag: py3-none-any
+Build: 1"
+Package Index Interfaces#,Common configurations#,[distutils]index-servers=first-repositorysecond-repository[first-repository]repository=<first-repository URL>username=<first-repository username>password=<first-repository password>[second-repository]repository=<second-repository URL>username=<second-repository username>password=<second-repository password>
+Package Index Interfaces#,Base HTML API#,"<!DOCTYPE html>
+<html>
+  <body>
+    <a href=""/frob/"">frob</a>
+    <a href=""/spamspamspam/"">spamspamspam</a>
+  </body>
+</html>"
+Package Index Interfaces#,Adding “Yank” Support to the Simple API#,"<!DOCTYPE html>
+<html>
+  <body>
+    <a href=""/frob/"">frob</a>
+    <a href=""/spamspamspam/"">spamspamspam</a>
+  </body>
+</html>"
+Package Index Interfaces#,Versioning PyPI’s Simple API#,"<!DOCTYPE html>
+<html>
+  <body>
+    <a href=""/frob/"">frob</a>
+    <a href=""/spamspamspam/"">spamspamspam</a>
+  </body>
+</html>"
+Package Index Interfaces#,Serve Distribution Metadata in the Simple Repository API#,"<!DOCTYPE html>
+<html>
+  <body>
+    <a href=""/frob/"">frob</a>
+    <a href=""/spamspamspam/"">spamspamspam</a>
+  </body>
+</html>"
+Package Index Interfaces#,JSON-based Simple API for Python Package Indexes#,"<!DOCTYPE html>
+<html>
+  <body>
+    <a href=""/frob/"">frob</a>
+    <a href=""/spamspamspam/"">spamspamspam</a>
+  </body>
+</html>"
+Package Index Interfaces#,Additional Fields for the Simple API for Package Indexes#,"<!DOCTYPE html>
+<html>
+  <body>
+    <a href=""/frob/"">frob</a>
+    <a href=""/spamspamspam/"">spamspamspam</a>
+  </body>
+</html>"
+Package Index Interfaces#,Rename dist-info-metadata in the Simple API#,"<!DOCTYPE html>
+<html>
+  <body>
+    <a href=""/frob/"">frob</a>
+    <a href=""/spamspamspam/"">spamspamspam</a>
+  </body>
+</html>"
+Package Index Interfaces#,History#,"<!DOCTYPE html>
+<html>
+  <body>
+    <a href=""/frob/"">frob</a>
+    <a href=""/spamspamspam/"">spamspamspam</a>
+  </body>
+</html>"
