@@ -19,7 +19,7 @@ This Python AllPages.py script scrapes headings, subheadings, and code snippets 
 3. Run the script:
 
     ```bash
-    python web_scraper.py
+    python AllPagesData.py and Guides.py
     ```
 
 4. The scraped data will be saved to a CSV file named `AllPagesDataOutput.csv`.
